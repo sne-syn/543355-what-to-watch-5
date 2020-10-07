@@ -1,11 +1,38 @@
 import React from 'react';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import PropTypes from "prop-types";
-import Main from '../main/main';
+import MainPage from '../mainPage/mainPage';
+import LoginPage from '../loginPage/loginPage';
+import MyListPage from '../myListPage/myListPage';
+import FilmPage from '../filmPage/filmPage';
+import ReviewPage from '../reviewPage/reviewPage';
+import PlayerPage from '../playerPage/playerPage';
 
 const App = (props) => {
   const {moviePreview} = props;
   return (
-    <Main moviePreview={moviePreview} />
+    <BrowserRouter>
+      <Switch>
+        <Route exact path='/'>
+          <MainPage moviePreview={moviePreview} />
+        </Route>
+        <Route exact path='/login'>
+          <LoginPage />
+        </Route>
+        <Route exact path='/films/:id'>
+          <FilmPage />
+        </Route>
+        <Route exact path='/films/:id/review'>
+          <ReviewPage/>
+        </Route>
+        <Route exact path='/mylist'>
+          <MyListPage />
+        </Route>
+        <Route exact path='/player/:id'>
+          <PlayerPage/>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 };
 

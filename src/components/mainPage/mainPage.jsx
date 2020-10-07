@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import Footer from '../footer/footer';
 
-const Main = ({moviePreview}) => {
+const MainPage = ({moviePreview}) => {
   const {title, genre, releaseYear} = moviePreview;
   return (
     <React.Fragment>
@@ -289,25 +290,14 @@ const Main = ({moviePreview}) => {
           </div>
         </section>
 
-        <footer className="page-footer">
-          <div className="logo">
-            <a className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
 
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </React.Fragment>
   );
 };
 
-Main.propTypes = {
+MainPage.propTypes = {
   moviePreview: PropTypes.shape({
     title: PropTypes.string,
     genre: PropTypes.string,
@@ -315,4 +305,4 @@ Main.propTypes = {
   })
 };
 
-export default Main;
+export default MainPage;
